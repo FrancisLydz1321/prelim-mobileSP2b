@@ -118,7 +118,8 @@ class DotIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 10,
-      width: 10,
+      // width: 10,
+      width: isActive ? 15 : 10,
       margin: const EdgeInsets.only(right: 8.0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10.0),
