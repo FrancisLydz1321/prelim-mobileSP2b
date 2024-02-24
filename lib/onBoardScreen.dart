@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prelim/HomeScreen.dart';
 import 'package:prelim/data.dart';
 import 'package:prelim/styles.dart';
 
@@ -83,23 +84,33 @@ class _onBoardScreenState extends State<onBoardScreen> {
                   itemBuilder: (context, index) => OnBoardPageCard(
                     title: onBoardDataList[index]['title'],
                     subTitle: onBoardDataList[index]['subtitle'],
-                  ),
+                  ), 
                 )),
-            Container(
-              alignment: Alignment.center,
-              width: MediaQuery.of(context).size.width / 1.4,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.0),
-                color: Colors.yellow, // palette.pRedColor
-              ),
-              child: const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 8.0),
-                child: Text(
-                  "Get Started",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                    color: Colors.white,
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                    builder: (context) => const HomeScreen(),
+                  ),
+                );
+              },
+              child: Container(
+                alignment: Alignment.center,
+                width: MediaQuery.of(context).size.width / 1.4,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                  color: Colors.yellow, // palette.pRedColor
+                ),
+                child: const Padding(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 10.0, vertical: 8.0),
+                  child: Text(
+                    "Get Started",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),
