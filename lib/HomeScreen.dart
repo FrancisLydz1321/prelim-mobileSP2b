@@ -28,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 )),
       ),
       bottomNavigationBar: NavigationBarTheme(
-        data: const NavigationBarThemeData(
+        data: NavigationBarThemeData(
           indicatorColor: Colors.yellowAccent,
           labelTextStyle: MaterialStateProperty.all(
             TextStyle(
@@ -37,13 +37,12 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ),
-        child: NavigationBar(destinations: const [
+        child: NavigationBar(height: 80, destinations: const [
           NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
           NavigationDestination(
               icon: Icon(Icons.book_online_outlined), label: 'Catalog'),
-          NavigationDestination(
-              icon: Icon(Icons.card_travel_outlined), label: 'Cart'),
-          NavigationDestination(icon: Icon(Icons.home), label: 'Cart'),
+          NavigationDestination(icon: Icon(Icons.shopping_cart), label: 'Cart'),
+          NavigationDestination(icon: Icon(Icons.person), label: 'Profile'),
         ]),
       ),
     );
