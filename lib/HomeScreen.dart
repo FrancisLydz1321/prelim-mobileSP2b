@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:prelim/onBoardScreen.dart';
 
@@ -13,7 +15,8 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.purple,
-      body: Text('asdadadadadaasd'),
+      body: Text(
+          'asdadadadadaasd asdjlaksdjaskdjaskdjasldjlsaj klasdlaksjdlasjdlaksdjs'),
       appBar: AppBar(
         backgroundColor: Colors.purple,
         leading: BackButton(
@@ -23,6 +26,25 @@ class _HomeScreenState extends State<HomeScreen> {
                     builder: (context) => const onBoardScreen(),
                   ),
                 )),
+      ),
+      bottomNavigationBar: NavigationBarTheme(
+        data: const NavigationBarThemeData(
+          indicatorColor: Colors.yellowAccent,
+          labelTextStyle: MaterialStateProperty.all(
+            TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ),
+        child: NavigationBar(destinations: const [
+          NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
+          NavigationDestination(
+              icon: Icon(Icons.book_online_outlined), label: 'Catalog'),
+          NavigationDestination(
+              icon: Icon(Icons.card_travel_outlined), label: 'Cart'),
+          NavigationDestination(icon: Icon(Icons.home), label: 'Cart'),
+        ]),
       ),
     );
   }

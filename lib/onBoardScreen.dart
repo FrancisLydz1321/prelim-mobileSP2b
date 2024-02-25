@@ -84,7 +84,7 @@ class _onBoardScreenState extends State<onBoardScreen> {
                   itemBuilder: (context, index) => OnBoardPageCard(
                     title: onBoardDataList[index]['title'],
                     subTitle: onBoardDataList[index]['subtitle'],
-                  ), 
+                  ),
                 )),
             GestureDetector(
               onTap: () {
@@ -149,13 +149,13 @@ class OnBoardPageCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const SizedBox(height: 30.0),
+        const SizedBox(height: 10.0),
         Text(
           title.toString(),
           textAlign: TextAlign.center,
           style: onBoardheadingTitle,
         ),
-        const SizedBox(height: 20.0),
+        const SizedBox(height: 10.0),
         Text(
           subTitle.toString(),
           textAlign: TextAlign.center,
