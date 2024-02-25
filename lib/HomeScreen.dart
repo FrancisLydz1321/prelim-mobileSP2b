@@ -14,7 +14,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final screens = [
     const Center(child: Text('Home', style: TextStyle(fontSize: 72))),
-    catalog(),
+    const catalog(),
+    //const Center(child: Text('Catalog', style: TextStyle(fontSize: 72))),
     const Center(child: Text('Cart', style: TextStyle(fontSize: 72))),
     const Center(child: Text('Profile', style: TextStyle(fontSize: 72))),
   ];
@@ -38,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
         data: NavigationBarThemeData(
           indicatorColor: Colors.yellowAccent,
           labelTextStyle: MaterialStateProperty.all(
-            TextStyle(
+            const TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w500,
             ),
@@ -62,3 +63,5 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
+// Widget catalog() {}
