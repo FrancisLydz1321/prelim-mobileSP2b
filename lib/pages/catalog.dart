@@ -15,16 +15,19 @@ class _catalogState extends State<catalog> {
       "price": "\$70",
       "images": '/assets/images/dog_9.1.jpg'
     },
-    // {
-    //   "name": "Our_Dawg",
-    //   "price": "\$60",
-    //   "images": '/assets/images/dog_12.jpg'
-    // },
-    // {
-    //   "name": "Thou_Dawg",
-    //   "price": "\$50",
-    //   "images": '/assets/images/dog_13.jfif'
-    // },
+  ];
+
+  final List<Map<String, dynamic>> dogList2 = [
+    {
+      "name": "Our_Dawg",
+      "price": "\$60",
+      "images": '/assets/images/dog_12.jpg'
+    },
+    {
+      "name": "Thou_Dawg",
+      "price": "\$50",
+      "images": '/assets/images/dog_13.jfif'
+    },
   ];
 
   @override
@@ -38,7 +41,7 @@ class _catalogState extends State<catalog> {
         const SizedBox(height: 25),
         getSearch(),
         const SizedBox(height: 25),
-        Text('asdasdasd'),
+        // Text('asdasdasd'),
         const SizedBox(height: 25),
         Container(
           width: MediaQuery.of(context).size.width,
@@ -125,13 +128,13 @@ class _catalogState extends State<catalog> {
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemBuilder: ((context, index) {
-                        return petCard(
-                          name: dogList[index]['name'],
-                          images: dogList[index]['image'],
-                          price: dogList[index]['price'],
+                        return petCard2(
+                          name: dogList2[index]['name'],
+                          images: dogList2[index]['image'],
+                          price: dogList2[index]['price'],
                         );
                       }),
-                      itemCount: dogList.length,
+                      itemCount: dogList2.length,
                     ),
                   ),
                   // const Positioned(
@@ -212,6 +215,85 @@ class petCard extends StatelessWidget {
               //         Icon(Icons.shopping_cart, size: 10, color: Colors.pink),
               //   ),
               // ),
+            ],
+          ),
+          Align(
+            alignment: Alignment.topLeft,
+            child: Text(
+              name.toString(),
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18.0,
+              ),
+            ),
+          ),
+          SizedBox(height: 10),
+          Align(
+            alignment: Alignment.topLeft,
+            child: Text(
+              price.toString(),
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18.0,
+              ),
+            ),
+          ),
+          Row(
+            children: [
+              Expanded(
+                flex: 2,
+                child: Icon(Icons.shopping_cart, size: 10, color: Colors.white),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                  color: Colors.white,
+                ),
+                child:
+                    Icon(Icons.shopping_cart, size: 13, color: Colors.yellow),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class petCard2 extends StatelessWidget {
+  final String? name;
+  // final String? type;
+  final String? price;
+  final String? images;
+
+  const petCard2({super.key, this.name, this.price, this.images});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width / 2.3,
+      margin: const EdgeInsets.only(right: 14.0, left: 14.0),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10.0),
+        color: Colors.white,
+      ),
+      child: Column(
+        children: [
+          Stack(
+            children: [
+              Container(
+                height: 154,
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/dog_14.jpg'),
+                    // image: AssetImage(images.toString()),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
             ],
           ),
           Align(
