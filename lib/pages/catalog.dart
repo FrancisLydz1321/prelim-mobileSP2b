@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:prelim/onBoardScreen.dart';
+import 'package:prelim/pages/dawg.dart';
 
 class catalog extends StatefulWidget {
   const catalog({super.key});
@@ -9,7 +11,7 @@ class catalog extends StatefulWidget {
 
 class _catalogState extends State<catalog> {
   final List<Map<String, dynamic>> dogList = [
-    {"name": "Dawg", "price": "\$80", "images": '/assets/images/dog_8.jpg'},
+    {"name": "Dawg", "price": "\$80", "images": '/assets/images/dog_5.jfif'},
     {
       "name": "My_Dawg",
       "price": "\$70",
@@ -66,19 +68,29 @@ class _catalogState extends State<catalog> {
                   //     ),
                   //   ),
                   // ),
-                  SizedBox(
-                    height: 250,
-                    // width: 250,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: ((context, index) {
-                        return petCard(
-                          name: dogList[index]['name'],
-                          images: dogList[index]['image'],
-                          price: dogList[index]['price'],
-                        );
-                      }),
-                      itemCount: dogList.length,
+
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(
+                          builder: (context) => const dawg(),
+                        ),
+                      );
+                    },
+                    child: SizedBox(
+                      height: 250,
+                      // width: 250,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: ((context, index) {
+                          return petCard(
+                            name: dogList[index]['name'],
+                            images: dogList[index]['image'],
+                            price: dogList[index]['price'],
+                          );
+                        }),
+                        itemCount: dogList.length,
+                      ),
                     ),
                   ),
                   // const Positioned(
@@ -99,6 +111,7 @@ class _catalogState extends State<catalog> {
         const SizedBox(
           height: 24,
         ),
+        // pet 2
         Container(
           width: MediaQuery.of(context).size.width,
           margin: const EdgeInsets.only(right: 10.0),
@@ -283,12 +296,12 @@ class petCard2 extends StatelessWidget {
           Stack(
             children: [
               Container(
-                height: 154,
+                height: 150,
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10.0),
                   image: DecorationImage(
-                    image: AssetImage('assets/images/dog_14.jpg'),
+                    image: AssetImage('assets/images/dog_9.1.jpg'),
                     // image: AssetImage(images.toString()),
                     fit: BoxFit.cover,
                   ),
@@ -319,7 +332,7 @@ class petCard2 extends StatelessWidget {
           ),
           Row(
             children: [
-              Expanded(
+              const Expanded(
                 flex: 2,
                 child: Icon(Icons.shopping_cart, size: 10, color: Colors.white),
               ),
